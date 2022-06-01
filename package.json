@@ -12,7 +12,11 @@
     "typescript": "^4.7.2"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+		"cy:open": "npx cypress open",
+    "cy:report": "node ./cypress/support/util/reports/multiple-cucumber-support.js && node ./cypress/support/util/reports/internal-report.js",
+    "cy:docker": "docker build -t cypress-test .",
+		"cy:run": "npx cypress run --record --key=3287fe3a-971b-4d5d-865f-72fc6e8d38ca"
   },
   "author": "nandini varanasi",
   "license": "ISC"

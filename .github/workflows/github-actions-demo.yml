@@ -4,7 +4,30 @@ jobs:
   Explore-GitHub-Actions:
     runs-on: ubuntu-latest
     steps:
-      - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
-      - name: List files in the repository
-        run: |
+      # - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
+      # - name: Chrome
+      - run: |
           ls ${{ github.workspace }}
+          name: Chrome
+          requires:
+            - cypress/install
+          executor: cypress/browsers-chrome73-ff68
+          record: true
+          start: npm start
+          wait-on: https://tconnecttestgreen.apos.tandemdiabetes.com/login.aspx
+          parallel: true
+          parallelism: 4
+          group: chrome
+          browser: chrome
+      - run: |
+          name: Firefox
+          requires:
+            - cypress/install
+          executor: cypress/browsers-chrome73-ff68
+          record: true
+          start: npm start
+          wait-on: https://tconnecttestgreen.apos.tandemdiabetes.com/login.aspx
+          parallel: true
+          parallelism: 2
+          group: firefox
+          browser: firefox
