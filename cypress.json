@@ -1,8 +1,4 @@
-{
-  "testFiles": "**/*.{feature,features,spec.js}",
-  "ignoreTestFiles": [
-    "**/1-getting-started/*.js",
-    "**/2-advanced-examples/*.js"
-  ],
-	"projectId": "pbnzmu"
+ {
+  "projectId": "pbnzmu",
+   "baseUrl": "http://localhost:3000"
 }
