@@ -13,15 +13,12 @@ class LoginPage {
 }
 
 login(email, password) {
+	cy.log("my first test !!");
 	cy.get('#txtLoginEmailAddress')
 	      .type('sftestaccount001@tandem-diabetes.com', email)
-			
-			cy.get('#txtLoginPassword').debug(password).type('tconnect', password)
-			// Debugger is hit after the cy.visit
-    // and cy.get commands have completed
-	
+			cy.get('#txtLoginPassword').type('tconnect', password)
 			cy.get('#linkLogin > div').click()
-}
+}	
 
 logOut() {
 	cy.get('#linkLogout').click()
